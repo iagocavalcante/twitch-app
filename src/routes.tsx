@@ -12,74 +12,87 @@ const { Navigator, Screen } = createBottomTabNavigator();
 const Routes: React.FC = () => (
   <NavigationContainer>
     <Navigator
-      tabBarOptions={{
-        style: {
-          height: 60,
+      screenOptions={{
+        headerShown: false,
+        tabBarStyle: {
+          height: 80,
           backgroundColor: colors.primary,
-          borderTopWodth: 0
+          borderTopWidth: 0,
+          paddingTop: 8,
+          paddingBottom: 8
         },
-        tabStyle: {
+        tabBarItemStyle: {
           alignItems: 'center',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          paddingVertical: 4
         },
-        iconStyle: {
+        tabBarIconStyle: {
           flex: 0,
-          width: 20,
-          height: 20
+          width: 24,
+          height: 24,
+          marginBottom: 2
         },
-        labelStyle: {
+        tabBarLabelStyle: {
           fontFamily: 'roboto_400',
           fontSize: 11,
-          marginTop: 5
+          marginTop: 2
         },
-        inactiveTintColor: colors.black,
-        activeTintColor: colors.purple
+        tabBarInactiveTintColor: colors.black,
+        tabBarActiveTintColor: colors.purple
       }}
     >
-      <Screen name="Following" component={Following} options={{
-        tabBarIcon: ({ size, focused }) => {
-          return (
+      <Screen 
+        name="Following" 
+        component={Following} 
+        options={{
+          tabBarIcon: ({ focused }) => (
             <Ionicons
-              name="md-heart"
-              size={size}
+              name="heart"
+              size={24}
               color={focused ? colors.purple : colors.black}
             />
           )
-        }
-      }} />
-      <Screen name="Discover" component={ComingSoon} options={{
-        tabBarIcon: ({ size, focused }) => {
-          return (
+        }} 
+      />
+      <Screen 
+        name="Discover" 
+        component={ComingSoon} 
+        options={{
+          tabBarIcon: ({ focused }) => (
             <MaterialCommunityIcons
               name="compass-outline"
-              size={size}
+              size={24}
               color={focused ? colors.purple : colors.black}
             />
           )
-        }
-      }} />
-      <Screen name="Browse" component={View} options={{
-        tabBarIcon: ({ size, focused }) => {
-          return (
+        }} 
+      />
+      <Screen 
+        name="Browse" 
+        component={View} 
+        options={{
+          tabBarIcon: ({ focused }) => (
             <Ionicons
-              name="md-browsers"
-              size={size}
+              name="browsers"
+              size={24}
               color={focused ? colors.purple : colors.black}
             />
           )
-        }
-      }} />
-      <Screen name="Esports" component={View} options={{
-        tabBarIcon: ({ size, focused }) => {
-          return (
+        }} 
+      />
+      <Screen 
+        name="Esports" 
+        component={View} 
+        options={{
+          tabBarIcon: ({ focused }) => (
             <MaterialCommunityIcons
               name="trophy-outline"
-              size={size}
+              size={24}
               color={focused ? colors.purple : colors.black}
             />
           )
-        }
-      }} />
+        }} 
+      />
     </Navigator>
   </NavigationContainer>
 );
